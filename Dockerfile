@@ -11,16 +11,17 @@ RUN wget -O iota-binaries.tgz https://github.com/iotaledger/iota/releases/downlo
     && tar -xzvf iota-binaries.tgz \
     && rm iota-binaries.tgz
 
-FROM alpine:3.22
+FROM debian:bookworm-slim 
 
 WORKDIR /usr/local/bin
 COPY --from=Builder /app .
 
-RUN adduser -D iota-user
+RUN apt-get update
+RUN apt-get install -y libpq-dev curl
+
+RUN adduser --disabled-password --gecos "" iota-user
 USER iota-user
 
-CMD ["iota", "start", "--force-regenesis", "--with-faucet"]
+CMD ["/usr/local/bin/iota", "start", "--force-regenesis", "--with-faucet"]
 
-EXPOSE 9000
-EXPOSE 9123
-
+EXPOSE 9000 9123
