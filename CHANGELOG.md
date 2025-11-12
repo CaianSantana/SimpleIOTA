@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/CaianSantana/SimpleIOTA/compare/v1.1.0...v1.1.1) (2025-11-12)
+
+
+### Bug Fixes
+
+* Switch base image to Debian and install dependencies ([138126f](https://github.com/CaianSantana/SimpleIOTA/commit/138126f1e70ec3cecf0b80c26073a1b80a1de5ec))
+
 # [1.1.0](https://github.com/CaianSantana/SimpleIOTA/compare/v1.0.0...v1.1.0) (2025-10-22)
 
 
